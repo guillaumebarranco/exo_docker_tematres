@@ -29,8 +29,8 @@ La rédaction sera dans le fichier markdown tematres/NOTES.md
 
 Trouver l'image de tematres sur https://hub.docker.com
 
-Fournir l'url résultat
-Cette image est difficilement utilisable: expliquer pourquoi (en une ligne)
+- Fournir l'url résultat
+- Cette image est difficilement utilisable: expliquer pourquoi (en une ligne)
 
 #### Qualifier une image dont on dispose de la source
 
@@ -48,24 +48,25 @@ On va se baser une architecture apache - php - mysql (driver mysqli). La derniè
 
 Il va falloir produire:
 
-un fichier local tematres/image/Dockerfile pour produire l'image de Tematres
-un fichier de configuration tematres/image/db.tematres.php pour paramétrer l'application
-un fichier tematres/docker-compose.yml (version 3) pour orchestrer les services
-un fichier avec les variables d'environnement pour la base de données tematres/test.env
-un fichier tematres/REAMDE.md (en markdown) dans lequel vous expliquez comment utiliser ce projet.
+- un fichier local tematres/image/Dockerfile pour produire l'image de Tematres
+- un fichier de configuration tematres/image/db.tematres.php pour paramétrer l'application
+- un fichier tematres/docker-compose.yml (version 3) pour orchestrer les services
+- un fichier avec les variables d'environnement pour la base de données tematres/test.env
+- un fichier tematres/REAMDE.md (en markdown) dans lequel vous expliquez comment utiliser ce projet.
 Les noms de services seronts:
 
-web pour le service apache/php/tematres
-db pour le service mysql
+- web pour le service apache/php/tematres
+- db pour le service mysql
 
 #### Service db
 
 Le container de base de donnée peut être produit directement à partir de la dernière image de Mysql sur docker hub
 
-Créer le fichier tematres/docker-compose.yml (syntaxe: version 3)
-Ajouter le service db pour qu'il utilise la dernière version officielle de mysql
-tel qu'il utilise un volume db_data pour le répertoire /var/lib/mysql
-tel qu'il initialise une base de donnée et un utilisateur pour le service web
+- Créer le fichier tematres/docker-compose.yml (syntaxe: version 3)
+- Ajouter le service db pour qu'il utilise la dernière version officielle de mysql
+  - tel qu'il utilise un volume db_data pour le répertoire /var/lib/mysql
+  - tel qu'il initialise une base de donnée et un utilisateur pour le service web
+
 A ce niveau vous devriez être capable de vérifier que le service db peut être lancé par docker-compose
 
 #### Service web
