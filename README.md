@@ -76,6 +76,7 @@ Le services web nécessite qu'on construise une image, à cette fin, il faut un 
 
 Pour vous aider, voici le début du fichier tematres/image/Dockerfile:
 
+```
 FROM php:5.6-apache
 
 # Install unzip and mysqli drivers for php
@@ -86,10 +87,13 @@ RUN set -ex; \
   docker-php-ext-install mysqli
 
 # Append your code after this line !
+```
+
 Commandes UNIX/Shell
 
 Pour installer Tematres dans /var/www/html sur une machine linux, on exécute les commandes suivantes (on admet avoir les droits root):
 
+```
 $ a2enmod rewrite
 $ curl -o /tmp/tematres.zip -L 'https://github.com/tematres/TemaTres-Vocabulary-Server/archive/master.zip'
 $ unzip /tmp/tematres.zip -d /tmp
@@ -97,12 +101,15 @@ $ cd /var/www/html
 $ ( cd /tmp/TemaTres-Vocabulary-Server-master && tar cf - . ) | tar xvf -
 $ rm -rf /tmp/tematres.zip /tmp/TemaTres*
 Ajoutez ces commandes au fichier Dockerfile en fournissant un commentaire pour chaque ligne pour expliquer ce que ces commandes font
+```
 
 A cette étape vous devriez être en mesure d'exécuter la commande docker-build sans erreurs
 
 Pour tester ces commandes, vous pouvez utiliser l'image php:5.6-apache en exécutant:
 
- docker run --rm -it php:5.6-apache /bin/bash
+```
+docker run --rm -it php:5.6-apache /bin/bash
+```
 
 #### Configuration de l'image
 
