@@ -11,4 +11,7 @@ RUN set -ex; \
   unzip /tmp/tematres.zip -d /tmp; \
   cd /var/www/html; \
   ( cd /tmp/TemaTres-Vocabulary-Server-master && tar cf - . ) | tar xvf - ; \
-  rm -rf /tmp/tematres.zip /tmp/TemaTres* ;
+  pwd;\
+  ls -l . ;\
+  ls -l /var/www/html;
+  #rm -rf /tmp/tematres.zip /tmp/TemaTres* ;
