@@ -1,6 +1,6 @@
 # Exercice Individuel Tematres
 
-#Présentation
+# Présentation
 
 L'objectif est de fournir une infrastructure minimale pour exécuter le serveur de vocabulaire Tematres avec docker-compose.
 
@@ -19,18 +19,18 @@ tematres
   |_ README.md
   |_ test.env
 
-##Rédaction
+## Rédaction
 
 La rédaction sera dans le fichier markdown tematres/NOTES.md
 
-####Qualifier une image qui existe déjà
+#### Qualifier une image qui existe déjà
 
 Trouver l'image de tematres sur https://hub.docker.com
 
 Fournir l'url résultat
 Cette image est difficilement utilisable: expliquer pourquoi (en une ligne)
 
-####Qualifier une image dont on dispose de la source
+#### Qualifier une image dont on dispose de la source
 
 Aller sur github.com voir l'image ARV3054/docker-tematres
 
@@ -38,9 +38,9 @@ En lisant le Dockerfile et les autres scripts éventuellement, expliquer en quoi
 
 Les deux solutions ne peuvent être retenues pour la suite de l'exercice.
 
-##Conception
+## Conception
 
-####Architecture
+#### Architecture
 
 On va se baser une architecture apache - php - mysql (driver mysqli). La dernière image officielle de mysql sur docker hub sera utilisée.
 
@@ -56,7 +56,7 @@ Les noms de services seronts:
 web pour le service apache/php/tematres
 db pour le service mysql
 
-####Service db
+#### Service db
 
 Le container de base de donnée peut être produit directement à partir de la dernière image de Mysql sur docker hub
 
@@ -66,7 +66,7 @@ tel qu'il utilise un volume db_data pour le répertoire /var/lib/mysql
 tel qu'il initialise une base de donnée et un utilisateur pour le service web
 A ce niveau vous devriez être capable de vérifier que le service db peut être lancé par docker-compose
 
-####Service web
+#### Service web
 
 Image à partir d'un Dockerfile
 
@@ -102,7 +102,7 @@ Pour tester ces commandes, vous pouvez utiliser l'image php:5.6-apache en exécu
 
  docker run --rm -it php:5.6-apache /bin/bash
 
-####Configuration de l'image
+#### Configuration de l'image
 
 Afin de pouvoir disposer d'une image qui soit configurable par des variables d'environnement, il faut produire un fichier de configuration pour l'application qui puisse tenir compte de ces variables.
 
@@ -116,7 +116,7 @@ pour qu'elle utilise des variables d'environnement pour connecter la base de don
 Ce fichier doit être ajouté lors de la construction de l'image: ajouter la commande adéquate dans le Dockerfile pour copier ce fichier local dans l'image à la destination /var/www/html/vocab/db.tematres.php
 Les variables d'environnement utilisées par le fichier de configuration vont être affectées dans le fichier tematres/test.env
 
-####Orchestration des services web et db
+#### Orchestration des services web et db
 
 Ajouter au fichier tematres/docker-compose.yml le service web pour qu'il puisse se raccorder à la base de données.
 
@@ -124,10 +124,10 @@ en utilisant des variables d'environnement situées dans le fichier tematres/tes
 pour que le port par défaut du container (80) soit visible sur l'interface publique au port 8080
 L'installation est accessible à l'adresse http://localhost:8080/vocab/install.php ou http://x.x.x.x:8080/vocab/install.php. Assurez vous que la base mysql soit disponible et initialisée avant d'atteindre l'URL (peu prendre quelques secondes).
 
-####Documentation
+#### Documentation
 
 Concevoir le fichier tematres/README.md (en anglais et en markdown) qui documente l'utilisation de cette ressource, en oubliant pas de mettre votre nom et prénom.
 
-####Livraison
+#### Livraison
 
 Créer une archive ZIP de votre résultat sans les éventuels dépôt .git ou autres fichiers de tests et me le retourner.
