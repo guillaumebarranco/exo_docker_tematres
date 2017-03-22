@@ -1,12 +1,19 @@
 version: '2'
 
 services:
-   db:
-     image: mysql:latest
-     volumes:
-        - db_data:/var/lib/mysql
-     restart: always
-     env_file: ./../test.env
+  db:
+    image: mysql:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: ./../test.env
+
+  web:
+    build: .
+    volumes:
+      - './image:/code'
+    ports:
+    - 8080:80
 
 volumes:
   db_data:
