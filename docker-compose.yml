@@ -6,12 +6,12 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    env_file: ./../test.env
+    env_file: ./test.env
 
   web:
-    build: .
+    build: image
     volumes:
-      - './image:/code'
+      - '.:/code'
     ports:
     - 8080:80
 
