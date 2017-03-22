@@ -10,6 +10,7 @@ Créer une répertoire tematres dans lequel vous allez mettre tous vos fichiers
 
 Au final Vous aurez les fichiers suivants à me retourner sous forme d'archive zip sans les éventuels dépôt .git ou autres fichiers de tests :
 
+```
 tematres
   |_ NOTES.md
   |_ image
@@ -18,6 +19,7 @@ tematres
   |_ NOTES.md
   |_ README.md
   |_ test.env
+```
 
 ## Rédaction
 
